@@ -63,7 +63,7 @@ Find.find("../steps") do |path|
   end
 end
 
-puts " steplib_data: #{steplib_data}"
+puts " steplib_data: #{steplib_data.to_json}"
 
 # write to file
 File.open(options[:output_file_path], "w") do |f|
