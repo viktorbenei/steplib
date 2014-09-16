@@ -38,6 +38,13 @@ def json_step_item_from_yaml_hash(yaml_hash)
   }
 end
 
+def default_step_data_for_stepid(stepid)
+  return  {
+    id: stepid,
+    versions: {}
+  }
+end
+
 # --- MAIN ---
 
 steplib_data = {
@@ -56,9 +63,11 @@ Find.find("../steps") do |path|
       stepid, stepver = match.captures
       step_version_item = json_step_item_from_yaml_hash(SafeYAML.load_file(path))
 
-      steplib_data[:steps][stepid] = {} unless steplib_data[:steps][stepid]
+      unless steplib_data[:steps][stepid]
+        steplib_data[:steps][stepid] = default_step_data_for_stepid(stepid)
+      end
 
-      steplib_data[:steps][stepid][stepver] = step_version_item
+      steplib_data[:steps][stepid][:versions][stepver] = step_version_item
     end
   end
 end
