@@ -1,0 +1,41 @@
+---
+name: Send HipChat message
+description: |
+  Send a HipChat message to a room.
+website: https://github.com/bitrise-io/steps-hipchat
+source:
+  git: https://github.com/bitrise-io/steps-hipchat.git
+  tag: 1.0.0
+host_os_tags:
+  - osx-10.8
+  - osx-10.9
+  - ubuntu-14.04
+type_tags:
+  - IM
+  - notification
+requires_admin_user: false
+
+inputs:
+  - title: |
+      HipChat Auth Token
+    mapped_to: HIPCHAT_TOKEN
+  - title: |
+      HipChat RoomID
+    mapped_to: HIPCHAT_ROOMID
+  - title: |
+      From Name (max 15 characters)
+    mapped_to: HIPCHAT_FROMNAME
+  - title: |
+      Message Color - options:
+       * yellow (default)
+       * red
+       * green
+       * purple
+       * gray
+       * random
+    mapped_to: HIPCHAT_MESSAGE_COLOR
+  - title: |
+      Message
+    mapped_to: HIPCHAT_MESSAGE
+
+# outputs:
