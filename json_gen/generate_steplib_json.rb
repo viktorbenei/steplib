@@ -1,3 +1,9 @@
+#
+# Notes:
+#  * Sorts the Step versions in Descending order
+#  * Adds a 'latest' item to every Step, which is the same as the first version
+#
+
 require 'find'
 require "safe_yaml/load"
 require 'optparse'
@@ -32,16 +38,33 @@ end
 
 # --- UTILS ---
 
+def whitelist_hash(inhash, whitelist)
+  return {} if inhash.nil?
+
+  res_hash = {}
+  whitelist.each do |whiteitm|
+    if inhash[whiteitm]
+      res_hash[whiteitm] = inhash[whiteitm]
+    else
+      res_hash[whiteitm] = nil
+    end
+  end
+  return res_hash
+end
+
 def json_step_item_from_yaml_hash(yaml_hash)
-  return {
-    name: yaml_hash["name"]
-  }
+  whitelisted = whitelist_hash(yaml_hash, [
+    'name', 'description', 'website',
+    'host_os_tags', 'type_tags', 'requires_admin_user'
+    ])
+  whitelisted['source'] = whitelist_hash(yaml_hash['source'], ['git', 'tag'])
+  return whitelisted
 end
 
 def default_step_data_for_stepid(stepid)
   return  {
     id: stepid,
-    versions: {}
+    versions: []
   }
 end
 
@@ -55,6 +78,7 @@ steplib_data = {
 steplib_info = SafeYAML.load_file(options[:steplib_info_file])
 steplib_data[:version] = steplib_info["version"]
 
+steps_and_versions = {}
 Find.find("../steps") do |path|
   if FileTest.directory?(path)
     next
@@ -63,14 +87,42 @@ Find.find("../steps") do |path|
       stepid, stepver = match.captures
       step_version_item = json_step_item_from_yaml_hash(SafeYAML.load_file(path))
 
-      unless steplib_data[:steps][stepid]
-        steplib_data[:steps][stepid] = default_step_data_for_stepid(stepid)
+      unless steps_and_versions[stepid]
+        steps_and_versions[stepid] = default_step_data_for_stepid(stepid)
       end
 
-      steplib_data[:steps][stepid][:versions][stepver] = step_version_item
+      steps_and_versions[stepid][:versions] << step_version_item
     end
   end
 end
+
+# sort and prepare structure
+steps_and_versions.each do |key, value|
+  stepid = key
+  stepdata = value
+  sorted_versions = []
+  # puts "stepdata[:versions]: #{stepdata[:versions]}"
+  sorted_versions = stepdata[:versions].sort do |a, b|
+    a_source_tag_ver = Gem::Version.new(a['source']['tag'])
+    b_source_tag_ver = Gem::Version.new(b['source']['tag'])
+    # puts "a_source_tag_ver: #{a_source_tag_ver}"
+    # puts "b_source_tag_ver: #{b_source_tag_ver}"
+    case
+    when a_source_tag_ver < b_source_tag_ver
+      1
+    when a_source_tag_ver > b_source_tag_ver
+      -1
+    else
+      raise "Invalid version: found identical version tags in different versions!"
+    end
+  end
+
+  stepdata[:versions] = sorted_versions
+  stepdata[:latest] = sorted_versions.first
+  steplib_data[:steps][stepid] = stepdata
+end
+
+# Gem::Version.new('0.4')
 
 puts " steplib_data: #{steplib_data.to_json}"
 

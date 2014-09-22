@@ -5,11 +5,9 @@ description: |
 website: https://github.com/bitrise-io/steps-hipchat
 source:
   git: https://github.com/bitrise-io/steps-hipchat.git
-  tag: 1.0.0
+  tag: 1.1.0
 host_os_tags:
-  - osx-10.8
   - osx-10.9
-  - ubuntu-14.04
 type_tags:
   - IM
   - notification
