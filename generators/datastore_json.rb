@@ -39,15 +39,14 @@ end
 # --- UTILS ---
 
 def whitelist_hash(inhash, whitelist)
-  return {} if inhash.nil?
+  raise "Input hash is nil" if inhash.nil?
 
   res_hash = {}
   whitelist.each do |whiteitm|
-    if inhash[whiteitm]
-      res_hash[whiteitm] = inhash[whiteitm]
-    else
-      res_hash[whiteitm] = nil
+    if inhash[whiteitm].nil?
+      raise "Missing whitelisted item: #{whiteitm} | in hash: #{inhash}"
     end
+    res_hash[whiteitm] = inhash[whiteitm]
   end
   return res_hash
 end
@@ -58,6 +57,21 @@ def json_step_item_from_yaml_hash(yaml_hash)
     'host_os_tags', 'type_tags', 'requires_admin_user'
     ])
   whitelisted['source'] = whitelist_hash(yaml_hash['source'], ['git', 'tag'])
+  if yaml_hash['inputs']
+    whitelisted['inputs'] = yaml_hash['inputs'].map {|itm|
+      itm['is_expand'] = true if itm['is_expand'].nil?
+      whitelist_hash(itm, ['title', 'mapped_to', 'is_expand'])
+    }
+  else
+    whitelisted['inputs'] = []
+  end
+
+  if yaml_hash['outputs']
+    whitelisted['outputs'] = yaml_hash['outputs'].map {|itm| whitelist_hash(itm, ['title', 'mapped_to'])}
+  else
+    whitelisted['outputs'] = []
+  end
+
   return whitelisted
 end
 
@@ -105,8 +119,6 @@ steps_and_versions.each do |key, value|
   sorted_versions = stepdata[:versions].sort do |a, b|
     a_source_tag_ver = Gem::Version.new(a['source']['tag'])
     b_source_tag_ver = Gem::Version.new(b['source']['tag'])
-    # puts "a_source_tag_ver: #{a_source_tag_ver}"
-    # puts "b_source_tag_ver: #{b_source_tag_ver}"
     case
     when a_source_tag_ver < b_source_tag_ver
       1
