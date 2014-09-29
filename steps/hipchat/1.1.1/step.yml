@@ -17,14 +17,18 @@ inputs:
   - title: |
       HipChat Auth Token
     mapped_to: HIPCHAT_TOKEN
+    is_expand: true
   - title: |
       HipChat RoomID
     mapped_to: HIPCHAT_ROOMID
+    is_expand: true
   - title: |
       From Name (max 15 characters)
     mapped_to: HIPCHAT_FROMNAME
+    is_expand: true
   - title: |
       Message Color - options:
+
        * yellow (default)
        * red
        * green
@@ -32,8 +36,10 @@ inputs:
        * gray
        * random
     mapped_to: HIPCHAT_MESSAGE_COLOR
+    is_expand: true
   - title: |
       Message
     mapped_to: HIPCHAT_MESSAGE
+    is_expand: true
 
 # outputs:
