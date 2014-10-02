@@ -1,10 +1,9 @@
-name: Xcode Build
+name: Xcode Builder
 description: |
   Performs Xcode build, test, analyze or archive action, based on it's input.
 website: https://github.com/bitrise-io/steps-xcode-builder
 source:
   git: https://github.com/bitrise-io/steps-xcode-builder.git
-  tag: 2.0.1
 host_os_tags:
   - osx-10.9
 type_tags:
@@ -16,7 +15,6 @@ inputs:
   - title: |
       Project file path (.xcodeproj or .xcworkspace), relative to the repository root.
     mapped_to: BITRISE_PROJECT_PATH
-    is_expand: true
   - title: |
       Scheme in the Project to build
     mapped_to: BITRISE_SCHEME

@@ -1,25 +1,21 @@
-name: Xcode Build
+name: |
+  Xcode: Create Archive (IPA)
 description: |
-  Performs Xcode Build.
+  Performs Xcode Create Archive.
 website: https://github.com/bitrise-io/steps-xcode-builder
 source:
   git: https://github.com/bitrise-io/steps-xcode-builder.git
-  tag: 2.0.1
 host_os_tags:
   - osx-10.9
 type_tags:
   - xcode
-  - build
+  - archive
 requires_admin_user: true
 
 inputs:
   - title: |
       Project file path (.xcodeproj or .xcworkspace), relative to the repository root.
     mapped_to: BITRISE_PROJECT_PATH
-    is_expand: true
-    default_value: |
-      ${BITRISE_PROJECT_PATH}
-    is_readonly: true
   - title: |
       Scheme in the Project to build
     mapped_to: BITRISE_SCHEME
@@ -32,6 +28,9 @@ inputs:
   - title: |
       Action Archive: set it to 'true' to perform Xcode 'archive' action
     mapped_to: BITRISE_ACTION_ARCHIVE
+    default_value: |
+      true
+    is_readonly: true
   - title: |
       Action UnitTest: set it to 'true' to perform Xcode 'test' action
     mapped_to: BITRISE_ACTION_UNITTEST
