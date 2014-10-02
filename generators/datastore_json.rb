@@ -12,7 +12,8 @@ require 'json'
 
 options = {
   output_file_path: nil,
-  steplib_info_file: "../steplib.yml"
+  steplib_info_file: "../steplib.yml",
+  step_collection_folder: "../steps"
 }
 opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage: generate_steplib_json.rb [OPTIONS]"
@@ -21,6 +22,10 @@ opt_parser = OptionParser.new do |opt|
 
   opt.on("-o", "--outputfile OUTPUT_FILE_PATH", "Output JSON file path") do |value|
     options[:output_file_path] = value
+  end
+
+  opt.on("-d", "--stepdir STEPS_DIR", "Steps folder path (default is #{options[:step_collection_folder]})") do |value|
+    options[:step_collection_folder] = value
   end
 
   opt.on("-h","--help","help") do
@@ -35,6 +40,10 @@ unless options[:output_file_path]
   puts opt_parser
   exit
 end
+
+puts "--- Config:"
+puts options
+puts "-----------"
 
 # --- UTILS ---
 
@@ -93,7 +102,7 @@ steplib_info = SafeYAML.load_file(options[:steplib_info_file])
 steplib_data[:version] = steplib_info["version"]
 
 steps_and_versions = {}
-Find.find("../steps") do |path|
+Find.find(options[:step_collection_folder]) do |path|
   if FileTest.directory?(path)
     next
   else
