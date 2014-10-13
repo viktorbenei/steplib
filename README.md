@@ -16,7 +16,4 @@ Open Step Library
 * minimal descriptions (StepLib website pages):
   * what is a step (intro and link to docs)
   * how to install the cli and run your first workflow - check vagrant!
-
-# Format TODO
-
 * Step Icon URL
