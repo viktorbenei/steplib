@@ -3,6 +3,8 @@ steplib
 
 Open Step Library
 
+The StepLib website is available at [http://www.steplib.com/](http://www.steplib.com/) and the website repository on [GitHub](https://github.com/steplib/website).
+
 *Work in progress*
 
 # V1 roadmap
