@@ -1,7 +1,5 @@
-steplib
+The Open Step Library (StepLib)
 =======
-
-Open Step Library
 
 The StepLib website is available at [http://www.steplib.com/](http://www.steplib.com/) and the website repository on [GitHub](https://github.com/steplib/website).
 
