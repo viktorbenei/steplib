@@ -3,6 +3,8 @@ The Open Step Library (StepLib)
 
 The StepLib website is available at [http://www.steplib.com/](http://www.steplib.com/) and the website repository on [GitHub](https://github.com/steplib/website).
 
+If you can't find a suitable Step in the library then you can either add your own (you can find more information about how you can submit your own step in the */docs* folder) or if you don't have the time to create one by yourself you can propose one by creating a [new issue](https://github.com/steplib/steplib/issues) with the *[proposal]* prefix.
+
 
 # V1 roadmap
 
