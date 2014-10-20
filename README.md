@@ -11,6 +11,8 @@ If you can't find a suitable Step in the library then you can either add your ow
 * step variations (Xcode build - common code, pre-configured variations)
 * read-only inputs, default input values
   * step's responsibility or workflow/step-host-service's?
+* Steplib: Data encryption policy/guideline
+* Steplib: open(source) policy - why only public github repos are accepted at the moment
 * clean up existing/initial steps: do not depend on Bitrise's VM setup
 * CLI
 * minimal descriptions (StepLib website pages):
