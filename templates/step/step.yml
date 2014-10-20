@@ -1,0 +1,76 @@
+name: |
+  Name / title of your step
+description: |
+  Description of the step, in markdown format.
+
+  You can include [links](https://github.com/steplib/steplib)
+  to help the user of the Step in the setup process (for example
+  if the step required authentication tokens for a service you
+  should include the links where the user can get those tokens).
+
+  *You can include lists, for example a step-by-step guide*:
+
+  1. Add this Step to your workflow
+  2. Generate the required authentication tokens
+  3. ?
+  4. Profit
+
+  The point of the description is to provide a good overview of
+  what your step does and a guide for a new user on how to
+  do the setup.
+# website: can be the step's github page or a dedicated website if you have one
+website: https://website.url/of/your/step
+# source, with the git repository url
+#  at the moment we only accept GitHub, open repositories
+source:
+  git: https://github.com/your-github-user/the-github-step-repo.git
+# OS tags, in this form:
+#  [short-os-code]-[the-os-version-number]
+# You should test your step on all the listed OS versions!
+host_os_tags:
+  - osx-10.9
+# Type tags: regular tags, used for searching, filtering or grouping
+#  on websites.
+type_tags:
+  - osx
+  - system
+# If your step doesn't require an administrator user account
+#  to run properly then you should keep this 'false'
+requires_admin_user: false
+
+# Inputs:
+#  Inputs are a list of environment keys and user-friendly titles
+#  The step runner should map the given input's content (the one the user
+#   specifies) to the specified environment key.
+inputs:
+  - title: |
+      Title of input 1
+    mapped_to: ENVIRONMENT_KEY_OF_INPUT1
+# if is_expand is 'true' then the value of this input should be
+#  expanded based on the current environment variables.
+# For example if it contains $HOME then before the input would be
+#  assigned to the 'mapped_to' environment key $HOME should be
+#  expanded to the current value of the $HOME environment variable!
+# If it's false then it should be kept as a text as it is provided
+#  and environment variables should _not_ be replaced with the values!
+    is_expand: false
+  - title: |
+      Title of input 2
+    mapped_to: ENVIRONMENT_KEY_OF_INPUT2
+    is_expand: true
+
+# Outputs:
+#  Similar to inputs the outputs is a list environment variables.
+#  Title is meant to be presented on UIs, and the "mapped_to" parameter
+#   identifies the environment-key your step will generate.
+#  You're step is responsible to generate these outputs,
+#   it's not automatic. This list is used for connecting steps with each other,
+#   your Step's outputs are expected to be available for another step
+#   as input if that runs after your step.
+outputs:
+  - title: |
+      Title of output 1
+    mapped_to: ENVIRONMENT_KEY_OF_OUTPUT1
+  - title: |
+      Title of output 1
+    mapped_to: ENVIRONMENT_KEY_OF_OUTPUT1
