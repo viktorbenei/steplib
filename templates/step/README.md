@@ -9,3 +9,8 @@ as a best practice.
 
 **Read the included LICENSE file for more information about why it's
 important to include a license in your open source code!**
+
+You can also include a link to the StepLib website, including your
+own Step's page on StepLib, something like this:
+
+This Step is part of the [Open StepLib](http://www.steplib.com/), you can find its page on StepLib [here](http://www.steplib.com/step/your-step-id).
