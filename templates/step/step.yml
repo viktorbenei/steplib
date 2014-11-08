@@ -1,11 +1,11 @@
 name: |
   Name / title of your step
 description: |
-  Description of the step, in markdown format.
+  Description of the step, in **markdown format**.
 
   You can include [links](https://github.com/steplib/steplib)
   to help the user of the Step in the setup process (for example
-  if the step required authentication tokens for a service you
+  if the step requires authentication tokens for a service then you
   should include the links where the user can get those tokens).
 
   *You can include lists, for example a step-by-step guide*:
@@ -25,15 +25,15 @@ website: https://website.url/of/your/step
 source:
   git: https://github.com/your-github-user/the-github-step-repo.git
 # OS tags, in this form:
-#  [short-os-code]-[the-os-version-number]
+#  [short-os-code]-[the.os.version.number]
 # You should test your step on all the listed OS versions!
 host_os_tags:
   - osx-10.9
 # Type tags: regular tags, used for searching, filtering or grouping
 #  on websites.
 type_tags:
-  - osx
-  - system
+  - example
+  - sample
 # If your step doesn't require an administrator user account
 #  to run properly then you should keep this 'false'
 requires_admin_user: false
@@ -45,6 +45,8 @@ requires_admin_user: false
 inputs:
   - title: |
       Title of input 1
+# mapped_to is the Environment Variable's name which will contain
+#  the value the user provides for this input.
     mapped_to: ENVIRONMENT_KEY_OF_INPUT1
 # if is_expand is 'true' then the value of this input should be
 #  expanded based on the current environment variables.
@@ -63,7 +65,7 @@ inputs:
 #  Similar to inputs the outputs is a list environment variables.
 #  Title is meant to be presented on UIs, and the "mapped_to" parameter
 #   identifies the environment-key your step will generate.
-#  You're step is responsible to generate these outputs,
+#  Your step is responsible to generate these outputs,
 #   it's not automatic. This list is used for connecting steps with each other,
 #   your Step's outputs are expected to be available for another step
 #   as input if that runs after your step.
