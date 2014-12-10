@@ -26,6 +26,14 @@ with additional notes.
 **Recommendations, advanced tips and tricks for Step development** can be found in *docs/step_dev_notes.md*.
 
 
+## Request/Propose a new Step
+
+* create a [new issue on GitHub](https://github.com/steplib/steplib/issues)
+  * prefix the Title of the issue with: **[proposal]**
+  * example: *[proposal] Heroku deploy*
+* in the description try to explain how the step should work and provide as much useful information as you can (for example if you request a service integration step you could include a link to the official developer docs site)
+
+
 ## V1 roadmap
 
 * step variations (Xcode build - common code, pre-configured variations)
