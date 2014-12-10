@@ -28,6 +28,8 @@ with additional notes.
 
 ## Request/Propose a new Step
 
+If you don't have the time to create your own Step you can propose one by creating a new issue with the *[proposal]* prefix:
+
 * create a [new issue on GitHub](https://github.com/steplib/steplib/issues)
   * prefix the Title of the issue with: **[proposal]**
   * example: *[proposal] Heroku deploy*
