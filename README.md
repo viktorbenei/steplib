@@ -36,22 +36,6 @@ If you don't have the time to create your own Step you can propose one by creati
 * in the description try to explain how the step should work and provide as much useful information as you can (for example if you request a service integration step you could include a link to the official developer docs site)
 
 
-## V1 roadmap
-
-* step variations (Xcode build - common code, pre-configured variations)
-* question: extend the step.yml format with license information? So it can be presented on the StepLib and other collection websites?
-* read-only inputs, default input values
-  * step's responsibility or workflow/step-host-service's?
-* Steplib: Data encryption policy/guideline
-* Steplib: open(source) policy - why only public github repos are accepted at the moment
-* clean up existing/initial steps: do not depend on Bitrise's VM setup
-* CLI
-* minimal descriptions (StepLib website pages):
-  * what is a step (intro and link to docs)
-  * how to install the cli and run your first workflow - check vagrant!
-* Step Icon URL
-
-
 ## Contributing: how to add your own Step or update a Step Version
 
 1. Fork it
@@ -59,3 +43,47 @@ If you don't have the time to create your own Step you can propose one by creati
 3. Commit your changes (git commit -am 'This new step (or version) does X and Y and Z')
 4. Push to the branch (git push origin new-step-super-useful-thing)
 5. Create a Pull Request
+
+
+# Development Roadmap
+
+## What we want to achieve with StepLib?
+
+* An open source CI/CD and build automation system, with easy install, but highly modular: can be used for any kind of pipeline based automation, like web hook transformation, file conversion or for CI/CD build pipeline automation
+* Can be used with or without a web server, can be run from the terminal directly, used by online services or used on your own VPS
+
+
+## V1 roadmap
+
+Specification and existing step improvements:
+
+* workflow format specification
+* Step Icons - with URL to the icon or embedded in the step repository?
+* step variations (Xcode build - common code, pre-configured variations)
+* question: extend the step.yml format with license information? So it can be presented on the StepLib and other collection websites?
+* read-only inputs, default input values
+  * step's responsibility to define which inputs are meant to be read-only or to map a default value
+  * these options can be used in step-variations / step-flavors to have a fully customizable step and a few flavors with some of the inputs predefined
+  * an example of this is the Xcode builder step: the base step is huge, it can do a lot of different things based on the inputs; different pre-defined flavors of it can be added so that when you use these you don't have to fill our all the inputs the base step can take
+* Steplib: Data encryption policy/guideline
+* Steplib: open(source) policy - (explain) why only public GitHub repositories are accepted as steps
+* clean up existing/initial steps: do not depend on Bitrise's environment setup
+
+
+## V2 roadmap
+
+* A CLI (Command Line Interface) for running your workflow on your own machine
+* minimal descriptions (StepLib website pages):
+  * what is a step (intro and link to docs)
+  * how to install the cli and run your first workflow - check vagrant!
+
+
+## V3 roadmap
+
+Workflow editor to make it easy to create your workflow.
+
+
+## V4 roadmap
+
+A base web server so you can use your workflow as a service.
+
