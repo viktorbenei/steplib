@@ -21,6 +21,14 @@ Recommended:
 
 * a README.md file (readme file in Markdown format)
 
+
+## Step format design goals
+
+* the format should be as simple as possible, with the least amount of requirement
+* the step repository should be small and fast to download
+  * the Step Library should store all the step related resources as this repository won't be downloaded and processed as many times as the individual steps
+
+
 ## Step.yml and default values
 
 The following properties are all required in the step.yml descriptor file:
@@ -33,6 +41,7 @@ The following properties are all required in the step.yml descriptor file:
 * host_os_tags : the Operating System tags which are supported by your step, in the following format: [short-os-code]-[the.os.version.number]. You should test your step on all the listed OS versions!
 * type_tags : regular tags, used for searching, filtering or grouping by StepLib programs/services.
 * requires_admin_user : If your step doesn't require an administrator user account to run properly then you should set this to 'false'
+
 
 ### Inputs
 
@@ -59,6 +68,7 @@ expected to validate the input and it's type if required.
   with the environment value of XCODE_BUILDER_STATUS.
   If is_expand is false then the string `${XCODE_BUILDER_STATUS}` will
   be included instead of the related environment value it references.
+
 
 ### Outputs
 
