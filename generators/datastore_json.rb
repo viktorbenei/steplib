@@ -9,6 +9,12 @@ require "safe_yaml/load"
 require 'optparse'
 require 'json'
 
+# --- StepLib Collection specific options
+DEFAULT_step_assets_url_root = 'https://github.com/steplib/steplib/tree/master/steps'
+DEFAULT_steplib_source = 'https://github.com/steplib/steplib'
+# ---
+
+
 def env_or_default(env_key, default_value)
   env_val = ENV[env_key]
   if env_val
@@ -21,8 +27,8 @@ options = {
   output_file_path: nil,
   steplib_info_file: env_or_default('STEPLIB_INFO_FILE_PATH', '../steplib.yml'),
   step_collection_folder: env_or_default('STEPS_FOLDER_PATH', '../steps'),
-  step_assets_url_root: env_or_default('STEP_ASSETS_URL_ROOT', 'https://github.com/steplib/steplib/tree/master/steps'),
-  steplib_source: env_or_default('STEPLIB_SOURCE', 'https://github.com/steplib/steplib')
+  step_assets_url_root: env_or_default('STEP_ASSETS_URL_ROOT', DEFAULT_step_assets_url_root),
+  steplib_source: env_or_default('STEPLIB_SOURCE', DEFAULT_steplib_source)
 }
 opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage: generate_steplib_json.rb [OPTIONS]"
