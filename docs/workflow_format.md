@@ -54,6 +54,7 @@
         "is_always_run": false,
         "position_in_workflow": 0,
         "id": "git-clone", // not part of a "step version" in the StepLib format, have to be injected
+        "steplib_source": "https://github.com/steplib/steplib", // source library of this step
 
         // step-lib specific
         "version_tag": "1.4.0",
