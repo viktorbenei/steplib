@@ -119,7 +119,7 @@ def json_step_item_from_yaml_hash(yaml_hash)
     'name', 'description',
     'website', 'fork_url',
     'host_os_tags', 'project_type_tags', 'type_tags',
-    'requires_admin_user'
+    'is_requires_admin_user'
     ])
   #
   whitelisted['source'] = whitelist_require_hash(yaml_hash['source'], ['git'])
@@ -130,19 +130,19 @@ def json_step_item_from_yaml_hash(yaml_hash)
         {key: 'description', value: ''},
         {key: 'is_required', value: false},
         {key: 'value_options', value: []},
-        {key: 'default_value', value: ''},
-        {key: 'dont_change_value', value: false}
+        {key: 'value', value: ''},
+        {key: 'is_dont_change_value', value: false}
         ])
       whitelisted_itm = whitelist_require_hash(whitelisted_itm,
         ['title', 'description', 'mapped_to', 'is_expand',
-          'is_required', 'value_options', 'default_value', 'dont_change_value'])
+          'is_required', 'value_options', 'value', 'is_dont_change_value'])
       if whitelisted_itm['value_options'].length == 0
         whitelisted_itm['value_options'] = nil
       else
         # force to-string
         whitelisted_itm['value_options'] = whitelisted_itm['value_options'].map { |e| e.to_s }
       end
-      whitelisted_itm['default_value'] = whitelisted_itm['default_value'].to_s
+      whitelisted_itm['value'] = whitelisted_itm['value'].to_s
       # return:
       whitelisted_itm
     }
