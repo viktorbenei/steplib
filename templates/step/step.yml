@@ -36,7 +36,7 @@ type_tags:
   - sample
 # If your step doesn't require an administrator user account
 #  to run properly then you should keep this 'false'
-requires_admin_user: false
+is_requires_admin_user: false
 
 # Inputs:
 #  Inputs are a list of environment keys and user-friendly titles

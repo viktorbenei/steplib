@@ -10,7 +10,7 @@ host_os_tags:
 type_tags:
   - xcode
   - analyze
-requires_admin_user: true
+is_requires_admin_user: true
 
 inputs:
   - title: |
@@ -25,8 +25,8 @@ inputs:
   - title: |
       Action Analyze: set it to 'true' to perform Xcode 'analyze' action
     mapped_to: BITRISE_ACTION_ANALYZE
-    default_value: "true"
-    dont_change_value: true
+    value: "true"
+    is_dont_change_value: true
   - title: |
       Action Archive: set it to 'true' to perform Xcode 'archive' action
     mapped_to: BITRISE_ACTION_ARCHIVE
