@@ -28,9 +28,8 @@ inputs:
   - title: |
       Action Archive: set it to 'true' to perform Xcode 'archive' action
     mapped_to: BITRISE_ACTION_ARCHIVE
-    default_value: |
-      true
-    is_readonly: true
+    default_value: "true"
+    dont_change_value: true
   - title: |
       Action UnitTest: set it to 'true' to perform Xcode 'test' action
     mapped_to: BITRISE_ACTION_UNITTEST

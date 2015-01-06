@@ -22,9 +22,8 @@ inputs:
   - title: |
       Action Build: set it to 'true' to perform Xcode 'build' action
     mapped_to: BITRISE_ACTION_BUILD
-    default_value: |
-      true
-    is_readonly: true
+    default_value: "true"
+    dont_change_value: true
   - title: |
       Action Analyze: set it to 'true' to perform Xcode 'analyze' action
     mapped_to: BITRISE_ACTION_ANALYZE
