@@ -68,7 +68,7 @@
           "git",
           "vcs"
         ],
-        "requires_admin_user": false,
+        "is_requires_admin_user": false,
         "source": {
           "git": "https:\/\/github.com\/bitrise-io\/steps-git-clone.git"
         },

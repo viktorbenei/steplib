@@ -16,4 +16,4 @@ type_tags:
   - system
   - update
   - upgrade
-requires_admin_user: false
+is_requires_admin_user: false
