@@ -1,4 +1,4 @@
-name: Ping an URL with cURL
+name: "Ping an URL with cURL"
 description: |
   Performs a [cURL](http://curl.haxx.se/) request on the given URL
   and reports the result (success / failed) of the response.
@@ -29,4 +29,3 @@ inputs:
           `-d 'key=some_data'`
     is_expand: false
     is_required: false
-
