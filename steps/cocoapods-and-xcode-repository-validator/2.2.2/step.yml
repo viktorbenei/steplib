@@ -25,7 +25,9 @@ inputs:
     is_required: true
   - 
     mapped_to: GATHER_PROJECTS
-    title: "Scan for project configurations? - Leave it empty to don't."
+    title: "Scan for project configurations?"
+    description: |
+       Leave it empty to don't.
     value_options: ["", "yes"]
     value: ""
     is_expand: false
