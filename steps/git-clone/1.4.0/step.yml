@@ -26,38 +26,49 @@ inputs:
     title: "Git repository URL"
     mapped_to: GIT_REPOSITORY_URL
     is_required: true
+    is_expand: false
   - 
     title: "Git Commit to clone"
     mapped_to: BITRISE_GIT_COMMIT
+    is_expand: true
   - 
     title: "Git Tag to clone"
     mapped_to: BITRISE_GIT_TAG
+    is_expand: true
   - 
     title: "Git Branch to clone"
     mapped_to: BITRISE_GIT_BRANCH
+    is_expand: true
   - 
     title: "Clone destination (local) directory path"
     mapped_to: BITRISE_SOURCE_DIR
+    is_expand: true
   - 
     title: "Auth: Username"
     mapped_to: AUTH_USER
+    is_expand: false
   - 
     title: "Auth: Password"
     mapped_to: AUTH_PASSWORD
+    is_expand: false
   - 
     title: "Auth: SSH private key - without a passphrase!"
     mapped_to: AUTH_SSH_PRIVATE_KEY
+    is_expand: false
   - 
     title: "Auth: Base64 (strict - RFC 4648) encoded SSH private key - without a passphrase!"
     mapped_to: AUTH_SSH_PRIVATE_KEY_BASE64
+    is_expand: false
   - 
     title: "Generate a Formatted (markdown) output file to this path"
     mapped_to: GIT_CLONE_FORMATTED_OUTPUT_FILE_PATH
+    is_expand: true
   - 
     title: "[optional] Is export outputs."
     mapped_to: GIT_CLONE_IS_EXPORT_OUTPUTS
     value: "true"
     value_options: ["true", "false"]
+    is_expand: false
 outputs:
   - 
     title: "Cloned git commit's commit hash"
