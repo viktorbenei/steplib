@@ -1,5 +1,5 @@
 ---
-name: Dropbox uploader
+name: "Dropbox uploader"
 description: |
   ## Important note:
 
@@ -51,42 +51,57 @@ description: |
 
   You can find more information at [Dropbox-Uploader](https://github.com/andreafabrizi/Dropbox-Uploader).
 website: https://github.com/bitrise-io/steps-dropbox-upload
+fork_url: https://github.com/bitrise-io/steps-dropbox-upload
 source:
   git: https://github.com/bitrise-io/steps-dropbox-upload.git
 host_os_tags:
   - osx-10.9
+  - osx-10.10
 type_tags:
   - deploy
   - upload
   - uploader
 is_requires_admin_user: false
-
 inputs:
-  - title: |
-      App Key
+  - 
     mapped_to: APPKEY
+    title: "App Key"
     is_expand: false
-  - title: |
-      App Secret
+    is_required: true
+  - 
     mapped_to: APPSECRET
+    title: "App Secret"
     is_expand: false
-  - title: |
-      Access Level: sandbox or dropbox. Sandbox is more secure, it only allows upload to the App's folder.
+    is_required: true
+  - 
     mapped_to: ACCESS_LEVEL
+    title: "Access Level"
+    description: |
+      'sandbox' or 'dropbox'. Sandbox is more secure,
+      it only allows upload to the App's folder.
+
+      The 'dropbox' option allows full/total access.
     is_expand: false
-  - title: |
-      OAuth access token
+    is_required: true
+    value_options: ["sandbox", "dropbox"]
+    value: "sandbox"
+  - 
     mapped_to: OAUTH_ACCESS_TOKEN
+    title: "OAuth access token"
     is_expand: false
-  - title: |
-      OAuth access token secret
+    is_required: true
+  - 
     mapped_to: OAUTH_ACCESS_TOKEN_SECRET
+    title: "OAuth access token secret"
     is_expand: false
-  - title: |
-      Local path to upload
+    is_required: true
+  - 
     mapped_to: PATH_TO_UPLOAD
+    title: "Local path to upload"
     is_expand: true
-  - title: |
-      Path on Dropbox
+    is_required: true
+  - 
     mapped_to: UPLOAD_PATH_ON_DROPBOX
+    title: "Path on Dropbox"
     is_expand: true
+    is_required: true
