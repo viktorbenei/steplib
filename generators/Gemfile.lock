@@ -2,11 +2,11 @@ GEM
   remote: https://rubygems.org/
   specs:
     safe_yaml (1.0.4)
-    steplib_validator (0.9.0.1)
+    steplib (0.9.0.5)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   safe_yaml
-  steplib_validator
+  steplib
