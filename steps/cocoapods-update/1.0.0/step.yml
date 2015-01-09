@@ -1,16 +1,19 @@
 ---
-name: |
-  Update installed Cocoapods version to the latest one
+name: "Update installed Cocoapods version to the latest one"
 description: |
   Updates the installed CocoaPods version
   to the latest available CocoaPods version.
   
   For more information about CocoaPods, visit the [CocoaPods website](http://cocoapods.org/)
 website: https://github.com/bitrise-io/steps-cocoapods-update
+fork_url: https://github.com/bitrise-io/steps-cocoapods-update
 source:
   git: https://github.com/bitrise-io/steps-cocoapods-update.git
 host_os_tags:
   - osx-10.9
+  - osx-10.10
+project_type_tags:
+  - ios
 type_tags:
   - cocoapods
   - system
