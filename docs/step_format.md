@@ -32,9 +32,16 @@ Recommended:
 ## Step.yml and default values
 
 The following properties are all required except if marked
-as [optional] in the step.yml descriptor file:
+as [optional] in the step.yml descriptor file.
+
+**Workflow Notes:** All the attributes should be copied
+to a workflow and the value of the properties is **not** expected
+to change in the Workflow **except** if it's marked at the
+property here in the list (with: @WorkflowUserMod) - in that case
+it's expected that the user will be able to change the value of the property.
 
 * name : Name / title of your step, presented in Step libraries, search results, UIs, ...
+  * @WorkflowUserMod: the value of this property is expected to change in workflow; this property defines a default value for the Workflow; user modifiable in Workflow
   * [string] [required]
 * description : detailed description of your Step in markdown format. You can include important notes and setup guide or anything important related to your step.
   * [string] [required] [format:markdown]
@@ -91,6 +98,7 @@ expected to validate the input and it's type if required.
   with the environment value of XCODE_BUILDER_STATUS.
   If is_expand is false then the string `${XCODE_BUILDER_STATUS}` will
   be included instead of the related environment value it references.
+  * @WorkflowUserMod: the value of this property is expected to change in workflow; this property defines a default value for the Workflow; user modifiable in Workflow
   * [bool] [optional|default:true]
 * is_required : whether it's a required input (true if the step can't
   properly work without specifying it)
@@ -104,6 +112,7 @@ expected to validate the input and it's type if required.
   Useful to indicate the default value if your step has one for the input
   and for "step flavors" where you might want to fix an input value
   to achieve the flavor's purpose.
+  * @WorkflowUserMod: the value of this property is expected to change in workflow; this property defines a default value for the Workflow; user modifiable in Workflow
   * [string] [optional|default:""]
 * is_dont_change_value : if this is set to true then
   it indicates that the input's specified 'value' property should not be modified,
