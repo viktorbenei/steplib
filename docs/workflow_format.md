@@ -47,9 +47,6 @@
           "step_full_id": "OPENSTEPLIB-git-clone",
         },
 
-        // utility
-        "title": "Title of the Step, meant to be accessible and editable for users, for step organization inside the workflow.",
-
         // workflow specific
         "is_always_run": false,
         "position_in_workflow": 0,
@@ -58,7 +55,7 @@
 
         // step-lib specific
         "version_tag": "1.4.0",
-        "name": "Git Clone Repository",
+        "name": "Git Clone Repository - accessible and editable for users, for step organization inside the workflow.",
         "description": "Clones a repository based on the provided inputs.\n\n**NOTE**: it will remove the specified (local) Destination Directory before cloning!\n\nIf a git commit is provided it will ignore the tag and branch parameters.\nIf no git commit but a tag is provided then it will ignore the branch parameter.\n\nAuth: if SSH private key parameter provided the other auth parameters will be ignored.\n\nUse either the *(raw) SSH* or the *Base64 encoded SSH* key input to specify\nthe SSH key. If both specified the *(raw) SSH* key input will be used.\n",
         "website": "https:\/\/github.com\/bitrise-io\/steps-git-clone",
         "host_os_tags": [
