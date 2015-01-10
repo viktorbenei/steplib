@@ -7,6 +7,7 @@ If you can't find a suitable Step in the library then you can either add your ow
 
 You can find **annotated templates** in the */templates* folder.
 
+
 ## Create your own Step
 
 One of the design goals of StepLib is to keep the Step format as simple as possible.
