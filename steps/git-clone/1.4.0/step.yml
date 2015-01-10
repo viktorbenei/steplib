@@ -26,7 +26,7 @@ inputs:
     title: "Git repository URL"
     mapped_to: GIT_REPOSITORY_URL
     is_required: true
-    is_expand: false
+    is_expand: true
   - 
     title: "Git Commit to clone"
     mapped_to: BITRISE_GIT_COMMIT
@@ -54,11 +54,11 @@ inputs:
   - 
     title: "Auth: SSH private key - without a passphrase!"
     mapped_to: AUTH_SSH_PRIVATE_KEY
-    is_expand: false
+    is_expand: true
   - 
     title: "Auth: Base64 (strict - RFC 4648) encoded SSH private key - without a passphrase!"
     mapped_to: AUTH_SSH_PRIVATE_KEY_BASE64
-    is_expand: false
+    is_expand: true
   - 
     title: "Generate a Formatted (markdown) output file to this path"
     mapped_to: GIT_CLONE_FORMATTED_OUTPUT_FILE_PATH
