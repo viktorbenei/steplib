@@ -1,5 +1,8 @@
-name: |
-  Name / title of your step
+#
+# For a full description of the properties you can use
+#  in a step.yml file see: https://github.com/steplib/steplib/blob/master/docs/step_format.md
+# 
+name: "Name / title of your step"
 description: |
   Description of the step, in **markdown format**.
 
@@ -20,6 +23,11 @@ description: |
   do the setup.
 # website: can be the step's github page or a dedicated website if you have one
 website: https://website.url/of/your/step
+# fork and source url: a website url where others can see the code of
+#  this step and fork the step's repository (or a description of
+#  how others can contribute to the development of this step).
+#  Usually this is just the GitHub page of your step.
+fork_url: https://github.com/your-github-user/the-github-step-repo
 # source, with the git repository url
 #  at the moment we only accept GitHub, open repositories
 source:
@@ -29,6 +37,11 @@ source:
 # You should test your step on all the listed OS versions!
 host_os_tags:
   - osx-10.9
+  - osx-10.10
+# if this step is specifically made for a build system
+#  or project type you can list those as tags
+project_type_tags:
+  - ios
 # Type tags: regular tags, used for searching, filtering or grouping
 #  on websites.
 type_tags:
@@ -43,8 +56,15 @@ is_requires_admin_user: false
 #  The step runner should map the given input's content (the one the user
 #   specifies) to the specified environment key.
 inputs:
-  - title: |
-      Title of input 1
+  - title: "Title of input 1"
+  - description: |
+      Description of the input. Optional.
+      You can include longer guides / notes here
+      in *markdown* format if you have to.
+      
+      For example you can describe how a user
+      can obtain a Token for a service and then
+      copy the token as the value of this input.
 # mapped_to is the Environment Variable's name which will contain
 #  the value the user provides for this input.
     mapped_to: ENVIRONMENT_KEY_OF_INPUT1
@@ -53,9 +73,29 @@ inputs:
 # For example if it contains $HOME then before the input would be
 #  assigned to the 'mapped_to' environment key $HOME should be
 #  expanded to the current value of the $HOME environment variable!
-# If it's false then it should be kept as a text as it is provided
-#  and environment variables should _not_ be replaced with the values!
+# If it's false then it should be kept as a text - as it is provided -
+#  and environment variables should _not_ be replaced within the input's value!
     is_expand: false
+# you can mark inputs which are essential for the Step to run
+#  correctly as "required"
+    is_required: true
+# if you have a list of the acceptable values for this input
+#  you can list those as `value_options`. This means
+#  that the user should only be able to specify these values
+#  for the input. Every input value is interpreted as string/text.
+    value_options: ["true", "false"]
+# You can define a default value for this input.
+#  The input value is interpreted as string/text.
+    value: "true"
+# You can also mark inputs with a "don't change" flag.
+#  This means that the default value you provided for the step
+#  should not be changed by the user.
+# This flag is used for creating step variants/flavors
+#  where you have a complex base step and you define a few
+#  variants with pre-defined inputs.
+# A user can then use the easier step-flavor (fewer inputs to fill out)
+#  instead of the more complex base step.
+    is_dont_change_value: false
   - title: |
       Title of input 2
     mapped_to: ENVIRONMENT_KEY_OF_INPUT2
