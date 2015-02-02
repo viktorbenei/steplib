@@ -6,7 +6,7 @@ to be included in your Step repository.
 You can find a **full template Step repository on GitHub**: [https://github.com/steplib/step-template](https://github.com/steplib/step-template).
 
 Technically all what's required is a *step.sh* and a *step.yml* file,
-but we advise you to include at least a readme and a license file too
+but we advise you to include at least a *README* and a *LICENSE* file too
 as a best practice.
 
 **Read the included LICENSE file for more information about why it's
