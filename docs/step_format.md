@@ -9,7 +9,8 @@ which can be submitted into this open StepLib collection.
 
 A Step have to be a Git repository hosted on GitHub as a public repository.
 
-**You can find an annotated Step repository example in the templates/step folder.**
+**You can find an annotated Step repository** example in the `templates/step` folder
+and a **full template Step repository** on GitHub: [https://github.com/steplib/step-template](https://github.com/steplib/step-template).
 
 It have to contain:
 
@@ -146,4 +147,5 @@ identifies the Environment Variable Key your step will generate.
   variable's name.
   * [string] [required]
 
-> You can find an annotated Step repository example in the *templates/step* folder.
+> You can find an annotated Step repository example in the *templates/step* folder
+> and a full template Step repository at [https://github.com/steplib/step-template](https://github.com/steplib/step-template).
