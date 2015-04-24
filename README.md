@@ -99,9 +99,3 @@ Specification and existing step improvements:
 ## V3 roadmap
 
 Workflow editor to make it easy to create your workflow.
-
-
-## V4 roadmap
-
-A base web server so you can use your workflow as a service.
-
